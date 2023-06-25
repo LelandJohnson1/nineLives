@@ -1,7 +1,7 @@
 import random
 
 
-print("Guess the secret word!")
+print("\n*******Guess the secret word!*******")
 
 secretWords = [
     "floor",
@@ -18,13 +18,34 @@ secretWords = [
     "spies",
     "grand",
     "dress",
+    "character",
+    "pie",
+    "base",
+    "car",
+    "panda",
+    "pillow",
+    "bike",
+    "japan",
+    "whopper",
+    "cannon",
+    "tire",
+    "china",
+    "view" "laptop",
+    "crow",
+    "hit",
+    "soccer",
+    "president",
+    "autograph",
 ]
 
-questionMarks = list("?????")
 answer = random.choice(secretWords)
-
 gotCorrectWord = False
 lives = 9
+hearts = "\u2764"
+questionMarks = []
+
+for char in answer:
+    questionMarks.append("?")
 
 
 def guessedLetter(Userletter):
@@ -33,7 +54,7 @@ def guessedLetter(Userletter):
             answerIndex = answer.index(x)
             questionMarks[answerIndex] = Userletter
             print(questionMarks)
-            print("You found one! Do it again!")
+            print("\nYou found one! Do it again!")
             break
 
 
@@ -42,7 +63,8 @@ while lives != 0:
         break
 
     print(questionMarks)
-    userGuess = input("Type a letter or the whole word")
+    print("\n" + hearts * lives)
+    userGuess = input("Type a letter or the whole word\n")
 
     if userGuess == answer:
         print("Correct! " + "The word is " + answer)
@@ -55,7 +77,7 @@ while lives != 0:
             gotCorrectWord = True
 
     else:
-        print("Wrong answer! Life lost.")
+        print("\nWrong answer! Life lost.")
         lives -= 1
         if lives == 0:
-            print("Game Over")
+            print("Game Over!" + "The word was " + answer)
